@@ -1,0 +1,129 @@
+---90 Questions
+
+🟢 Days 1–5: Arrays (5)
+1-Two Sum
+2-Best Time to Buy and Sell Stock
+3-Maximum Subarray (Kadane’s Algorithm)
+4-Product of Array Except Self
+5-Move Zeroes
+
+🔵 Days 6–10: HashMap (5)
+6-Contains Duplicate
+7-Valid Anagram
+8-Two Sum (HashMap optimized)
+9-First Unique Character
+10-Top K Frequent Elements
+
+
+🟣 Days 11–15: Two Pointers (5)
+11-Two Sum II (sorted array)
+12-Remove Duplicates from Sorted Array
+13-Container With Most Water
+14-3Sum
+15-Valid Palindrome
+
+
+🔴 Days 16–20: Sliding Window (5)
+16-Longest Substring Without Repeating Characters
+17-Maximum Sum Subarray of Size K
+18-Minimum Window Substring
+19-Permutation in String
+20-Longest Repeating Character Replacement
+
+
+🟡 Days 21–25: Stack (5)
+21-Valid Parentheses
+22-Min Stack
+23-Next Greater Element
+24-Daily Temperatures
+25-Largest Rectangle in Histogram
+
+
+🟠 Days 26–30: Queue / Deque (5)
+26-Implement Queue using Stacks
+27-Sliding Window Maximum
+28-First Negative Number in Window
+29-Circular Queue
+30-Rotten Oranges
+
+
+⚫ Days 31–35: Recursion (5)
+31-Factorial
+32-Fibonacci
+33-Subsets
+34-Permutations
+35-Combination Sum
+
+
+⚪ Days 36–40: Linked List (5)
+36-Reverse Linked List
+37-Middle of Linked List
+38-Merge Two Sorted Lists
+39-Detect Cycle in Linked List
+40-Remove Nth Node from End
+
+🔵 Days 41–50: Binary Search (10)
+41-Binary Search
+42-Search Insert Position
+43-First Bad Version
+44-Search in Rotated Sorted Array
+45-Find Minimum in Rotated Sorted Array
+46-Peak Element
+47-Median of Two Sorted Arrays
+48-Koko Eating Bananas
+49-Capacity to Ship Packages
+50-Aggressive Cows
+
+
+🌳 Days 51–60: Trees (10)
+51-Inorder Traversal
+52-Preorder Traversal
+53-Postorder Traversal
+54-Level Order Traversal
+55-Maximum Depth of Binary Tree
+56-Diameter of Binary Tree
+57-Balanced Binary Tree
+58-Lowest Common Ancestor
+59-Same Tree
+60-Subtree of Another Tree
+
+
+🟣 Days 61–70: Heap (10)
+61-Kth Largest Element
+62-Top K Frequent Elements
+63-Merge K Sorted Lists
+64-Find Median from Data Stream
+65-K Closest Points
+66-Task Scheduler
+67-Reorganize String
+68-Connect Ropes
+69-Smallest Range
+70-Sliding Window Median
+
+
+🟡 Days 71–80: Graphs (10)
+71-Number of Islands
+72-Flood Fill
+73-Clone Graph
+74-Course Schedule
+75-Detect Cycle in Graph
+76-Number of Provinces
+77-Word Ladder
+78-Dijkstra Algorithm
+79-Bellman Ford
+80-Topological Sort
+
+
+🔴Days 81–85: Dynamic Programming (5)
+81-Climbing Stairs
+82-House Robber
+83-Coin Change
+84-Longest Increasing Subsequence
+85-Longest Common Subsequence
+
+🟡 Days 86–90: Revision + Mock (5)
+86-Mixed Problem 1
+87-Mixed Problem 2
+88-Mixed Problem 3
+89-Mixed Problem 4
+90-Mock Interview (Timed)
