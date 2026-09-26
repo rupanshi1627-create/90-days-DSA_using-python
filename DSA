@@ -1,0 +1,960 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMNTsHMs6CRE5HgoFejZzSm",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/rupanshi1627-create/90-days-DSA_using-python/blob/main/DSA\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "nBt6qnXTCura",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "5b217ebd-7149-4230-c23d-2fe83aaafab0"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1 9\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Test 1:\n",
+        "nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n",
+        "target = 10\n",
+        "left = 0\n",
+        "right = len(nums) - 1\n",
+        "\n",
+        "while left < right:\n",
+        "    current_sum = nums[left] + nums[right]\n",
+        "    if current_sum == target:\n",
+        "        print(nums[left], nums[right])\n",
+        "        break  # Stop after finding the first pair\n",
+        "    elif current_sum < target:\n",
+        "        left += 1\n",
+        "    else:\n",
+        "        right -= 1\n",
+        "else:\n",
+        "    print(\"No two numbers found that add up to the target.\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nums=[1,2,3,4,5,6,7,8,9,10]\n",
+        "target=12\n",
+        "#we have to find the pairs whose sum is target\n",
+        "\n",
+        "left=0 #we will start from left and consider that its the first nummber we are taking\n",
+        "right=len(nums)-1\n",
+        "\n",
+        "while left<right:\n",
+        "    current_sum=nums[left]+nums[right]\n",
+        "    if current_sum==target:\n",
+        "        print(nums[left],nums[right])\n",
+        "        break\n",
+        "    elif current_sum < target:\n",
+        "        left+=1\n",
+        "    else:\n",
+        "        right-=1\n",
+        "\n",
+        "#loop se bhaar\n",
+        "else:\n",
+        "    print(\"no pair found\")"
+      ],
+      "metadata": {
+        "id": "XsH-ceDIo88a",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "27d399aa-cd80-4f50-dbb7-40b010db2881"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "2 10\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#if we want to append t he pairs and we want to know all the possible pairs exists\n",
+        "nums=[1,2,3,4,5,6,7,8,9,10]\n",
+        "target=10\n",
+        "left=0\n",
+        "right=len(nums)-1\n",
+        "\n",
+        "#craete an empty list to store the pairs\n",
+        "pairs=[]\n",
+        "\n",
+        "while left<right:\n",
+        "    current_sum=nums[left]+nums[right]\n",
+        "    if current_sum==target:\n",
+        "        pairs.append((nums[left] ,nums[right])) # Corrected: Wrap in tuple\n",
+        "        #now move ek step forward and backward\n",
+        "        left+=1\n",
+        "        right-=1\n",
+        "    elif current_sum < target: # Corrected: Logic for moving left pointer\n",
+        "        left+=1\n",
+        "    else:\n",
+        "        right-=1\n",
+        "\n",
+        "# Corrected: Add logic to print the pairs found or a message if none\n",
+        "if pairs:\n",
+        "    for pair in pairs:\n",
+        "        print(pair[0], pair[1])\n",
+        "else:\n",
+        "    print(\"no pairs found\")"
+      ],
+      "metadata": {
+        "id": "m-SA0vxQrTyz",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "77968c7d-4b81-4c6a-d9be-5554babe93b1"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1 9\n",
+            "2 8\n",
+            "3 7\n",
+            "4 6\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nums=[1,2,3,4,5,6,7,8,9,10]\n",
+        "target=10\n",
+        "left=0\n",
+        "right=len(nums)-1\n",
+        "#create a empty list to stpre pairs\n",
+        "pairs=[] # Changed 'pair' to 'pairs' to match usage\n",
+        "\n",
+        "while left<right:\n",
+        "  current_sum=nums[left]+nums[right]\n",
+        "  if current_sum==target:\n",
+        "    pairs.append((left,right)) # Appending indices instead of values\n",
+        "    left+=1\n",
+        "    right-=1\n",
+        "  elif current_sum<target: # Corrected indentation\n",
+        "    left+=1\n",
+        "  else: # Corrected indentation\n",
+        "    right-=1\n",
+        "if pairs:\n",
+        "  for pair in pairs:\n",
+        "    print(pair[0],pair[1])\n",
+        "else:\n",
+        "  print(\"no pairs found\")"
+      ],
+      "metadata": {
+        "id": "SgcwKPJ7vjpC",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "83b0b904-2c85-4d46-a482-0d1e07cc2a8a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0 8\n",
+            "1 7\n",
+            "2 6\n",
+            "3 5\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Container with max water when an array of heights is given\n",
+        "\n",
+        "height_list = [1,8,6,2,5,4,8,3,7] # Renamed 'height' to 'height_list' to avoid conflict\n",
+        "\n",
+        "max_water = 0 # This variable will store the maximum water found\n",
+        "left = 0\n",
+        "right = len(height_list)-1\n",
+        "\n",
+        "while left < right:\n",
+        "    # Calculate width between the two pointers\n",
+        "    width = right - left\n",
+        "\n",
+        "    # The height of the container is limited by the shorter of the two lines\n",
+        "    current_container_height = min(height_list[left], height_list[right])\n",
+        "\n",
+        "    # Calculate the water that can be contained by the current pair of lines\n",
+        "    current_water = current_container_height * width\n",
+        "\n",
+        "    # Update max_water if the current container holds more water\n",
+        "    max_water = max(max_water, current_water)\n",
+        "\n",
+        "    # Move the pointer of the shorter line inwards\n",
+        "    # Moving the shorter line has the potential to increase the container's height\n",
+        "    if height_list[left] < height_list[right]:\n",
+        "        left += 1 # Corrected: Use '+=' to update the left pointer\n",
+        "    else:\n",
+        "        right -= 1\n",
+        "\n",
+        "print(max_water)"
+      ],
+      "metadata": {
+        "id": "Scejx3daRgy-",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "38fa9382-9851-42d4-cf1e-e627f09bae7f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "49\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "s = \"A man, a plan, a canal: Panama\"\n",
+        "cleaned_s=''\n",
+        "for char in s:\n",
+        "  if char.isalnum():\n",
+        "    cleaned_s+=char.lower()\n",
+        "#yaha two pointers laga do\n",
+        "left=0\n",
+        "right=len(cleaned_s)-1\n",
+        "is_palindrome=True\n",
+        "\n",
+        "while left<right:\n",
+        "  if cleaned_s[left]==cleaned_s[right]:\n",
+        "    left+=1\n",
+        "    right-=1\n",
+        "  else:\n",
+        "    is_palindrome=False\n",
+        "    break\n",
+        "print(is_palindrome)"
+      ],
+      "metadata": {
+        "id": "QQ6Y07r6gkUe",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "5061b991-e7b8-4e29-b938-d7d5df832d0c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "True\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "s=\"A man, a plan, a canal: Panama\"\n",
+        "\n",
+        "cleaned_s=''\n",
+        "for char in s:\n",
+        "  if char.isalnum():\n",
+        "    cleaned_s+=char.lower()\n",
+        "\n",
+        "left=0\n",
+        "right=len(cleaned_s)-1\n",
+        "is_palindrome=True\n",
+        "\n",
+        "while left<right:\n",
+        "       if cleaned_s[left]==cleaned_s[right]:\n",
+        "        left+=1\n",
+        "        right-=1\n",
+        "       else:\n",
+        "          is_palindrome=False\n",
+        "          break\n",
+        "print(is_palindrome)"
+      ],
+      "metadata": {
+        "id": "BvRj86xDgnyK",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "ca68de2e-cde2-4dba-d562-6780a5f2d127"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "True\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "numbers=[1,0,3,0,0,2,0]\n",
+        "\n",
+        "pos=0\n",
+        "# 'pos' ek counter/pointer hai jo track karta hai ki\n",
+        "# agla non-zero number array mein KAHAN likhna hai.\n",
+        "# Ye hamesha sirf AAGE (left se right) hi badhta hai, kabhi peeche nahi jaata —\n",
+        "# isliye ise \"same-direction pointer\" kehte hain.\n",
+        "for num in numbers:\n",
+        "  if num!=0:\n",
+        "    numbers[pos]=num\n",
+        "    pos+=1\n",
+        "# Agar num zero hai, toh if block ke andar kuch nahi hota —\n",
+        "    # loop apne aap agle number pe chala jaata hai (num update ho jaata hai),\n",
+        "    # lekin 'pos' apni jagah RUKA rehta hai, kyunki wahan ek \"khali slot\" hai\n",
+        "    # jo baad mein kisi non-zero number se ya phir zero se bharna hai\n",
+        "# Is point tak, array ke SHURU mein saare non-zero numbers\n",
+        "# apne sahi, original order mein aa chuke hain.\n",
+        "# Lekin array ke BAAKI bache hue positions (pos se end tak)\n",
+        "# abhi bhi PURANI (duplicate) values rakhte hain —\n",
+        "# jaise [1,3,2,0,0,2,0] jaisa kuch dikh sakta hai abhi\n",
+        "# (kyunki humne sirf overwrite kiya hai, kuch clear nahi kiya)\n",
+        "#pos' se lekar array ke end tak, ----\n",
+        "# ---- sab kuch 0 se replace kar do ----\n",
+        "for i in range(pos, len(numbers)):\n",
+        "\n",
+        "    # Ye saari positions ab \"extra/duplicate\" hain,\n",
+        "    # inhe seedha 0 bana do\n",
+        "    numbers[i] = 0\n",
+        "\n",
+        "# ---- Final result print karo ----\n",
+        "print(numbers)\n",
+        "# Expected Output: [1, 3, 2, 0, 0, 0, 0]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Rv82FGYaufW6",
+        "outputId": "93c830b5-debd-49f1-934c-7f2621af9736"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[1, 3, 2, 0, 0, 0, 0]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#This was the brute force\n",
+        "nums=[1,1,2,2,3,7,6,8,8,9,10]\n",
+        "unique = []\n",
+        "\n",
+        "for num in nums:\n",
+        "  if num not in unique:\n",
+        "    unique.append(num)\n",
+        "\n",
+        "print(unique)"
+      ],
+      "metadata": {
+        "id": "xoY4z6OIvBWw",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "bd942e68-4a43-4502-a349-25d6e6ddaede"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[1, 2, 3, 7, 6, 8, 9, 10]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Optimization technique two pointers\n",
+        "\n",
+        "nums=[1,1,2,2,3,7,6,8,8,9,10]\n"
+      ],
+      "metadata": {
+        "id": "V16zAuNMVzAb"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "f1c5c150",
+        "outputId": "b6b31784-bb5c-4eb8-ed2c-c8008d26ab56"
+      },
+      "source": [
+        "nums=[1,1,2,2,3,7,6,8,8,9,10]\n",
+        "\n",
+        "# For the two-pointer technique to remove duplicates in-place\n",
+        "# and efficiently, the array is typically assumed to be sorted.\n",
+        "# Let's sort the array first for demonstration purposes.\n",
+        "nums.sort()\n",
+        "print(\"Sorted nums array:\", nums)\n",
+        "\n",
+        "# Initialize two pointers:\n",
+        "# 'i' (slow-runner) will keep track of the last unique element found and its correct position.\n",
+        "# 'j' (fast-runner) will iterate through the array to find new unique elements.\n",
+        "\n",
+        "if not nums: # Handle the edge case of an empty list\n",
+        "    k = 0\n",
+        "else:\n",
+        "    i = 0 # 'i' starts at the first element (index 0), which is always unique initially\n",
+        "    for j in range(1, len(nums)): # 'j' starts from the second element (index 1)\n",
+        "        # If the element at 'j' is different from the element at 'i',\n",
+        "        # it means we found a new unique element.\n",
+        "        if nums[j] != nums[i]:\n",
+        "            i += 1          # Move 'i' forward to the next position\n",
+        "            nums[i] = nums[j] # Place the new unique element at `nums[i]`\n",
+        "    # After the loop, 'i' points to the last unique element's index.\n",
+        "    # So, 'i + 1' gives the total number of unique elements (k).\n",
+        "    k = i + 1\n",
+        "\n",
+        "# The first 'k' elements of the 'nums' array now contain the unique elements.\n",
+        "# The remaining elements beyond index 'k-1' are duplicates and are effectively 'removed'\n",
+        "# by defining the new length 'k'.\n",
+        "print(\"Array after removing duplicates (first k elements are unique):\", nums[:k])\n",
+        "print(\"Number of unique elements (k):\", k)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Sorted nums array: [1, 1, 2, 2, 3, 6, 7, 8, 8, 9, 10]\n",
+            "Array after removing duplicates (first k elements are unique): [1, 2, 3, 6, 7, 8, 9, 10]\n",
+            "Number of unique elements (k): 8\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nums=[1,1,2,3,4,5,6,1,2,8,9,4]\n",
+        "\n",
+        "nums.sort()\n",
+        "\n",
+        "unique=[]\n",
+        "\n",
+        "for num in nums:\n",
+        "  if num not in unique:\n",
+        "    unique.append(num)\n",
+        "\n",
+        "print (unique)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oJeHCA-qWB-t",
+        "outputId": "d71b2f36-7444-492c-9342-e2331d83dba1"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[1, 2, 3, 4, 5, 6, 8, 9]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nums = [1, 1, 2, 3, 4, 5, 6, 1, 2, 8, 9, 4]\n",
+        "print(\"Original:\", nums)\n",
+        "\n",
+        "nums.sort()\n",
+        "print(\"Sorted:\", nums)\n",
+        "\n",
+        "left = 0\n",
+        "\n",
+        "for right in range(1, len(nums)):\n",
+        "    # Corrected condition: Compare nums[right] with nums[left] to ensure uniqueness\n",
+        "    if nums[right] != nums[left]:\n",
+        "        left += 1\n",
+        "        nums[left] = nums[right]\n",
+        "\n",
+        "print(\"Count:\", left + 1)\n",
+        "print(\"Array:\", nums)\n",
+        "print(\"First\", left + 1, \"elements are unique:\", nums[:left + 1])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "B9rfBLzAXAjw",
+        "outputId": "135c6417-1383-4d82-a752-3eb40a635d1e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Original: [1, 1, 2, 3, 4, 5, 6, 1, 2, 8, 9, 4]\n",
+            "Sorted: [1, 1, 1, 2, 2, 3, 4, 4, 5, 6, 8, 9]\n",
+            "Count: 8\n",
+            "Array: [1, 2, 3, 4, 5, 6, 8, 9, 5, 6, 8, 9]\n",
+            "First 8 elements are unique: [1, 2, 3, 4, 5, 6, 8, 9]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "text=\"roopsi\"\n",
+        "new_s=''\n",
+        "for char in text:\n",
+        "  new_s=char+new_s\n",
+        "print(new_s)\n",
+        "if text==new_s:\n",
+        "  print(\"palindrome\")\n",
+        "else:\n",
+        "  print(\"not palindrome\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zDJIods534ca",
+        "outputId": "f68f5055-2358-48ec-ba15-df10e06ae9bb"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "ispoor\n",
+            "not palindrome\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#given string is palindrome or not\n",
+        "\n",
+        "str='khamoshi'\n",
+        "\n",
+        "#two pointer\n",
+        "left=0\n",
+        "right=len(str)-1\n",
+        "is_palindrome= True\n",
+        "\n",
+        "while left<right:\n",
+        "  if str[left]==str[right]:\n",
+        "    is_palindrome=True\n",
+        "    left+=1\n",
+        "    right-=1\n",
+        "  else:\n",
+        "    is_palindrome=False\n",
+        "print(is_palindrome)"
+      ],
+      "metadata": {
+        "id": "7wtykjLL5nko"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#q 3 — Find the largest number in a list\n",
+        "\n",
+        "num=[2,3,4,5,10,12,13,22,39,96]\n",
+        "max_num=num[0] #pehle index vale ko hi largest maan lo chalo\n",
+        "for i in range(1,len(num)):\n",
+        "  if num[i]>max_num:\n",
+        "    max_num=num[i]\n",
+        "print(max_num)\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "rRiDy2S0BrUt"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#given string is palindrome or not\n",
+        "\n",
+        "str='khamoshi'\n",
+        "\n",
+        "#two pointer\n",
+        "left=0\n",
+        "right=len(str)-1\n",
+        "is_palindrome= True\n",
+        "\n",
+        "while left<right:\n",
+        "  if str[left]==str[right]:\n",
+        "    is_palindrome=True\n",
+        "    left+=1\n",
+        "    right-=1\n",
+        "  else:\n",
+        "    is_palindrome=False\n",
+        "print(is_palindrome)"
+      ],
+      "metadata": {
+        "id": "WKqr70CRERyC",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 211
+        },
+        "outputId": "5b384a8f-1133-45c9-cff2-4c3caf2dd81b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "KeyboardInterrupt",
+          "evalue": "",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipykernel_2156/1649868103.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0mis_palindrome\u001b[0m\u001b[0;34m=\u001b[0m \u001b[0;32mTrue\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      9\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 10\u001b[0;31m \u001b[0;32mwhile\u001b[0m \u001b[0mleft\u001b[0m\u001b[0;34m<\u001b[0m\u001b[0mright\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     11\u001b[0m   \u001b[0;32mif\u001b[0m \u001b[0mstr\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mleft\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m==\u001b[0m\u001b[0mstr\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mright\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     12\u001b[0m     \u001b[0mis_palindrome\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;32mTrue\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mKeyboardInterrupt\u001b[0m: "
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Count vowels\n",
+        "\n",
+        "text = \"programming\"\n",
+        "vowels=\"aeiou\"\n",
+        "count=0\n",
+        "\n",
+        "for char in text:\n",
+        "  if char in vowels:\n",
+        "    #print(char)\n",
+        "    count+=1\n",
+        "    print(char)\n",
+        "print(count)\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "GTCheRR3gOe7",
+        "outputId": "5ffbfbe2-abcb-4e0e-9828-2eb291c4fd94"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "o\n",
+            "a\n",
+            "i\n",
+            "3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Question 5 — Count Frequency of a Character\n",
+        "\n",
+        "text=\"programming\"\n",
+        "#create an empty dictonary\n",
+        "frequency ={}\n",
+        "\n",
+        "for char in text:\n",
+        "  if char in frequency:\n",
+        "    frequency[char]+=1\n",
+        "  else:\n",
+        "    frequency[char]=1\n",
+        "print(frequency)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "XfW30HUXh_cP",
+        "outputId": "2cb22025-2f25-40df-f768-b35cee0f4453"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'p': 1, 'r': 2, 'o': 1, 'g': 2, 'a': 1, 'm': 2, 'i': 1, 'n': 1}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Question 6 — Remove Duplicates from a List\n",
+        "\n",
+        "numbers = [1, 2, 2, 3, 4, 4, 5, 5, 5]\n",
+        "unique=[]\n",
+        "\n",
+        "for num in numbers:\n",
+        "  if num not in unique:\n",
+        "    unique.append(num)\n",
+        "    print(num)\n",
+        "print (unique)\n"
+      ],
+      "metadata": {
+        "id": "gWeiV1PVkjHo",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "592b5280-7614-48e3-dda7-f3a2f3cb30b4"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n",
+            "2\n",
+            "3\n",
+            "4\n",
+            "5\n",
+            "[1, 2, 3, 4, 5]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "numbers = [10, 25, 7, 40, 15, 40]\n",
+        "\n",
+        "# Initialize largest and second_largest to a very small number\n",
+        "# or handle edge cases like an empty list or a list with only one element.\n",
+        "# Assuming the list has at least two numbers.\n",
+        "\n",
+        "largest = -float('inf')\n",
+        "second_largest = -float('inf')\n",
+        "\n",
+        "for num in numbers:\n",
+        "    # If the current number is greater than the current largest\n",
+        "    if num > largest:\n",
+        "        # The old largest becomes the new second largest\n",
+        "        second_largest = largest\n",
+        "        # The current number becomes the new largest\n",
+        "        largest = num\n",
+        "    # If the current number is not the largest, but is greater than the current second largest\n",
+        "    # AND it's not equal to the largest (to find a distinct second largest)\n",
+        "    elif num > second_largest and num != largest:\n",
+        "        second_largest = num\n",
+        "\n",
+        "print(second_largest)\n",
+        "\n",
+        "# --- Alternative approach: Initializing with the first number in the list ---\n",
+        "numbers = [10, 25, 7, 40, 15, 40]\n",
+        "\n",
+        "# Handle edge case: list must have at least two distinct elements for a meaningful second largest.\n",
+        "if len(numbers) < 2:\n",
+        "    print(\"List must contain at least two numbers to find a second largest.\")\n",
+        "else:\n",
+        "    # Initialize largest with the first element.\n",
+        "    # Initialize second_largest as None, indicating it hasn't been found yet.\n",
+        "    largest = numbers[0]\n",
+        "    second_largest = None\n",
+        "\n",
+        "    # Iterate through the numbers, starting from the second element.\n",
+        "    # The first element is already used for 'largest' initialization.\n",
+        "    for num in numbers[1:]:\n",
+        "        # If the current number is greater than the current largest\n",
+        "        if num > largest:\n",
+        "            # The old largest becomes the new second_largest\n",
+        "            second_largest = largest\n",
+        "            # The current number becomes the new largest\n",
+        "            largest = num\n",
+        "        # If the current number is not the largest (i.e., num < largest)\n",
+        "        # AND it's greater than the current second_largest (if one exists)\n",
+        "        # OR if second_largest is still None (meaning no second largest found yet)\n",
+        "        # Then, num could be our new second_largest.\n",
+        "        elif num < largest and (second_largest is None or num > second_largest):\n",
+        "            second_largest = num\n",
+        "\n",
+        "    # After iterating, print the second_largest found.\n",
+        "    if second_largest is not None:\n",
+        "        print(second_largest)\n",
+        "    else:\n",
+        "        # This case handles scenarios like [5, 5, 5] where no distinct second largest is found,\n",
+        "        # or if the list had only two elements and they were both the same.\n",
+        "        print(\"No distinct second largest number found.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oGEMqTn5Aeki",
+        "outputId": "09427b86-5496-4ab1-f526-13e5fd2a9efe"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "25\n",
+            "25\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#find missing number\n",
+        "numbers = [1, 2, 4, 5]\n",
+        "last_num = 5\n",
+        "total_num_inlist=numbers[-1]\n",
+        "expected_sum = last_num * (last_num + 1) // 2\n",
+        "actual_sum = 0\n",
+        "\n",
+        "for num in numbers:\n",
+        "    actual_sum += num\n",
+        "\n",
+        "missing = expected_sum - actual_sum\n",
+        "\n",
+        "print(missing)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mq8KDjBvMths",
+        "outputId": "f8049554-e83d-4e5f-bc6a-8419ca100180"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "numbers=[5,2,3,1,5]\n",
+        "seen=set() # Initialize an empty set\n",
+        "\n",
+        "for num in numbers:\n",
+        "  if num in seen:\n",
+        "    has_duplicate = True\n",
+        "    break # Found a duplicate, no need to check further\n",
+        "  seen.add(num)\n",
+        "\n",
+        "print(has_duplicate) # Print the result once at the end"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YAxJIo0FfWKu",
+        "outputId": "4b36a11c-e09c-40c4-a736-d008d87c34ad"
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "True\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "-FFxCvi6fYOf"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
